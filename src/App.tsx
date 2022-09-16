@@ -1,26 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Settings, Add } from '@mui/icons-material'
+import { Button, styled, Typography } from '@mui/material'
 
-function App() {
+const BlueButton = styled(Button)({
+  backgroundColor: 'skyblue',
+  color: '#888',
+  margin: 5,
+  '&:hover': {
+    backgroundColor: 'lightblue'
+  },
+  '&:disabled': {
+    backgroundColor: 'gray',
+    color: 'white'
+  }
+})
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <Button
+        variant="text">
+          Text
+      </Button>
+      <Button
+        startIcon={<Settings />}
+        variant="contained"
+        color="secondary" size="small"
         >
-          Learn React
-        </a>
-      </header>
+          Contained
+      </Button>
+      <Button
+        startIcon={<Add />}
+        variant="contained"
+        color="success"
+        >
+          Add
+      </Button>
+      <Button
+        variant="outlined"
+        disabled
+        >
+          Outlined
+      </Button>
+      <Typography variant="h1" component="p">
+        It uses h1 style but it&apos;s a p tag
+      </Typography>
+      <BlueButton variant="contained">
+        My Unique Button
+      </BlueButton>
+      <BlueButton variant="contained" disabled>
+        My Unique Button
+      </BlueButton>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
