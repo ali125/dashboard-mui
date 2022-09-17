@@ -1,6 +1,6 @@
-import React from 'react'
-import { Settings, Add } from '@mui/icons-material'
-import { Button, styled, Typography } from '@mui/material'
+import React from 'react';
+import { Settings, Add } from '@mui/icons-material';
+import { Button, styled, Typography } from '@mui/material';
 
 const BlueButton = styled(Button)({
   backgroundColor: 'skyblue',
@@ -13,7 +13,7 @@ const BlueButton = styled(Button)({
     backgroundColor: 'gray',
     color: 'white'
   }
-})
+});
 
 const App: React.FC = () => {
   return (
@@ -52,7 +52,7 @@ const App: React.FC = () => {
         My Unique Button
       </BlueButton>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
