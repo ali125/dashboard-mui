@@ -1,57 +1,32 @@
-import React from 'react';
-import { Settings, Add } from '@mui/icons-material';
-import { Button, styled, Typography } from '@mui/material';
-
-const BlueButton = styled(Button)({
-  backgroundColor: 'skyblue',
-  color: '#888',
-  margin: 5,
-  '&:hover': {
-    backgroundColor: 'lightblue'
-  },
-  '&:disabled': {
-    backgroundColor: 'gray',
-    color: 'white'
-  }
-});
+import { Box, createTheme, Stack, ThemeProvider } from "@mui/material";
+import React, { useState } from "react";
+import Add from "./components/Add";
+import Feed from "./components/Feed";
+import Navbar from "./components/NavBar";
+import Rightbar from "./components/Rightbar";
+import Sidebar from "./components/Sidebar";
 
 const App: React.FC = () => {
+  const [mode, setMode] = useState<"dark" | "light">("light");
+
+  const darkTheme = createTheme({
+    palette: {
+      mode,
+    }
+  });
+
   return (
-    <div>
-      <Button
-        variant="text">
-          Text
-      </Button>
-      <Button
-        startIcon={<Settings />}
-        variant="contained"
-        color="secondary" size="small"
-        >
-          Contained
-      </Button>
-      <Button
-        startIcon={<Add />}
-        variant="contained"
-        color="success"
-        >
-          Add
-      </Button>
-      <Button
-        variant="outlined"
-        disabled
-        >
-          Outlined
-      </Button>
-      <Typography variant="h1" component="p">
-        It uses h1 style but it&apos;s a p tag
-      </Typography>
-      <BlueButton variant="contained">
-        My Unique Button
-      </BlueButton>
-      <BlueButton variant="contained" disabled>
-        My Unique Button
-      </BlueButton>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+       <Box bgcolor="background.default" color="text.primary">
+        <Navbar />
+        <Stack direction="row" spacing={2} justifyContent="space-between">
+          <Sidebar onMode={setMode} mode={mode} />
+          <Feed />
+          <Rightbar />
+        </Stack>
+        <Add />
+      </Box>
+    </ThemeProvider>
   );
 };
 

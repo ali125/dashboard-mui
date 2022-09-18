@@ -19,6 +19,16 @@
     ],
     "rules": {
         "semi": [2, "always"],
-        "@typescript-eslint/semi": [2, "always"]
+        "@typescript-eslint/semi": [2, "always"],
+        "quotes": [2, "double"],
+        "@typescript-eslint/quotes": [2, "double"],
+        "triple-slash-reference": "off",
+        "@typescript-eslint/triple-slash-reference": "off",
+        "indent": "off",
+        "@typescript-eslint/indent": "off",
+        "comma-dangle": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "warn"
     }
 }
